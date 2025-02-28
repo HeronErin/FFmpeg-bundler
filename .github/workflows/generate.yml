@@ -21,4 +21,4 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Build ffmpeg-core
-        run: make prd
+        run: cd ffmpeg.wasm ; make prd
