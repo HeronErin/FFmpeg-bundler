@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<p id="output"></p>
+
+<script src="0.12.9.bundle.js"></script>
+<script>
+	(async function(){
+		window.ffmpeg = await createFFmpeg();
+		document.querySelector("#output").textContent = JSON.stringify(
+			await ffmpeg.listDir(".")
+		);
+
+	})();
+</script>
+</body>
+</html>

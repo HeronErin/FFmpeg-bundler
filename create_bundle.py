@@ -20,7 +20,7 @@ def getFileContents(*relativePath):
 def generateFromLocal():
 
 	ffmpeg_worker = getFileContents("ffmpeg", "dist", "umd", "814.ffmpeg.js")
-	ffmpeg_loader = getFileContents("ffmpeg", "dist", "umd", "ffmpeg.js")
+	ffmpeg_loader = getFileContents("ffmpeg", "dist", "umd", "ffmpeg.js") 
 	ffmpeg_core = getFileContents("core", "dist", "umd", "ffmpeg-core.js")
 	ffmpeg_wasm = getFileContents("core", "dist", "umd", "ffmpeg-core.wasm")
 
