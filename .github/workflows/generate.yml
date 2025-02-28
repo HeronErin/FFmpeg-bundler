@@ -46,8 +46,8 @@ jobs:
       - name: Build ffmpegs js
         run: cd ffmpeg.wasm ; npm run build
 
-      # - name: Build ffmpeg-core
-      #   run: cd ffmpeg.wasm ; make prd
+      - name: Build ffmpeg-core
+        run: cd ffmpeg.wasm ; make prd
 
 
       - name: Create bundles

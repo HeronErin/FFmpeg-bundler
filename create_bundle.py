@@ -24,7 +24,7 @@ def generateFromLocal():
 	ffmpeg_core = getFileContents("core", "dist", "umd", "ffmpeg-core.js")
 	ffmpeg_wasm = getFileContents("core", "dist", "umd", "ffmpeg-core.wasm")
 
-	f = open(os.path.join(DIR, "out", "bundle.js"), "w")
+	f = open(os.path.join(DIR, "out", "latest.bundle.js"), "w")
 	f.write(
 		TEMPLATE.replace("FFMPEG_LOADER", ffmpeg_loader.decode("utf-8"))
 		.replace("FFMPEG_CORE", base64.b64encode(ffmpeg_core).decode("ascii"))
