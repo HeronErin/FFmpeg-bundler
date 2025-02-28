@@ -39,15 +39,15 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Install Node dependencies
-        run: cd ffmpeg.wasm ; npm install
+        run: cd ffmpeg.wasm ; npm install --force
       - name: Install Python dependencies
         run: pip install requests
 
       - name: Build ffmpegs js
         run: cd ffmpeg.wasm ; npm run build
 
-      - name: Build ffmpeg-core
-        run: cd ffmpeg.wasm ; make prd
+      # - name: Build ffmpeg-core
+      #   run: cd ffmpeg.wasm ; make prd
 
 
       - name: Create bundles
