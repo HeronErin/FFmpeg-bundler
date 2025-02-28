@@ -78,7 +78,7 @@ def main():
 		generateFromLocal()
 		print("Local bundle generated!")
 	except Exception as e:
-		print("Error: Unable to generate bundle from local: " + e)
+		print(f"Error: Unable to generate bundle from local: {e}")
 	with ThreadPoolExecutor() as e:
 		for v in requests.get("https://api.cdnjs.com/libraries/ffmpeg?fields=versions").json()["versions"]:
 			# This wont work with older versions
