@@ -21,9 +21,9 @@
 
 	// Use base64 blobs to create replicate the
 	// other files byte-for-byte.
-	window.core_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_CORE")], { type: "application/javascript" }));
-	window.worker_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_WORKER")], { type: "application/javascript" }));
-	window.wasm_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_WASM")], { type: "application/wasm" }));
+	let core_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_CORE")], { type: "application/javascript" }));
+	let worker_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_WORKER")], { type: "application/javascript" }));
+	let wasm_blob = URL.createObjectURL(new Blob([base64ToBytes("FFMPEG_WASM")], { type: "application/wasm" }));
 
 
 	window.ffmpeg = new FFmpegWASM.FFmpeg();	

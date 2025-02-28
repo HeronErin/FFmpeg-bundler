@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '0 0 1 * *'
+    # Run every week to keep current
+    - cron: '0 14 * * 1'
 jobs:
   build:
 
