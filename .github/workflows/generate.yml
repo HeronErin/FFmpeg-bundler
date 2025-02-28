@@ -16,9 +16,46 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
+
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          draft: false
+          prerelease: false
+
+
       - name: Update pkg-config database
         run: sudo ldconfig
+
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
+      - name: Install Node dependencies
+        run: cd ffmpeg.wasm ; npm install
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Build ffmpegs js
+        run: cd ffmpeg.wasm ; npm run build
+
       - name: Build ffmpeg-core
         run: cd ffmpeg.wasm ; make prd
+
+
+      - name: Create bundles
+        run: python create_bundle.py
+
+      - name: Upload Each JS File to Release
+        run: |
+          for file in out/*.js; do
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Content-Type: application/javascript" \
+              --data-binary @"$file" \
+              "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.create_release.outputs.id }}/assets?name=$(basename $file)"
+          done
