@@ -8,8 +8,8 @@ See the [releases page](https://github.com/HeronErin/FFmpeg-bundler/releases) fo
 
 Ex:
 ```js
-	let ff = await createFFmpeg();
-	console.log(await ffmpeg.listDir(".")); //> [{"name":".","isDir":true},{"name":"..","isDir":true},{"name":"tmp","isDir":true},{"name":"home","isDir":true},{"name":"dev","isDir":true},{"name":"proc","isDir":true}]
+let ff = await createFFmpeg();
+console.log(await ffmpeg.listDir(".")); //> [{"name":".","isDir":true},{"name":"..","isDir":true},{"name":"tmp","isDir":true},{"name":"home","isDir":true},{"name":"dev","isDir":true},{"name":"proc","isDir":true}]
 ```
 
 
