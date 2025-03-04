@@ -1,5 +1,12 @@
 # The FFmepg-Wasm bundler
 
+<h2>Abandoning, FFmpeg-wasm has too borked up a front end for this method. </h2>
+<h3>It is better to just use the core js and core wasm with some helper functions </h3>
+
+
+
+
+
 A quick and hacky way to bundle [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm/) into a single .js file, allowing for it to be used in offline enviroments, and when CORS is an issue.
 
 
